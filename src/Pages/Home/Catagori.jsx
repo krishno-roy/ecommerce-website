@@ -31,7 +31,7 @@ const CatagoriList = [
 const Catagori = () => {
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-4 py-12 md:w-5xl mx-auto">
+      <div className="grid grid-cols-2  md:grid-cols-4 py-12 md:w-5xl mx-auto">
         {CatagoriList.map((catagori, id) => (
           <Link
             key={catagori.id}
