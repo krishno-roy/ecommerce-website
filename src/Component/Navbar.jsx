@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import LoginImg from "../assets/avatar.png";
 import { FaSearch, FaShoppingBag } from 'react-icons/fa';
 import { RiCloseLine, RiMenu3Line } from 'react-icons/ri';
+import { Link, NavLink } from 'react-router';
 
 const Navbar = () => {
 const [menuOpen, setMenuOpen]=useState(false)
@@ -18,24 +19,52 @@ const toggleMenu = () => {
         <div className="hidden md:block">
           <ul className="flex gap-6 font-semibold text-xl">
             <li>
-              <a href="/">Home</a>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "text-red-500" : "text-black"
+                }
+              >
+                Home
+              </NavLink>
             </li>
             <li>
-              <a href="/">Shop</a>
+              <NavLink
+                to="shop"
+                className={({ isActive }) =>
+                  isActive ? "text-red-500" : "text-black"
+                }
+              >
+                Shop
+              </NavLink>
             </li>
             <li>
-              <a href="/">Pages</a>
+              <NavLink
+                to="pages"
+                className={({ isActive }) =>
+                  isActive ? "text-red-500" : "text-black"
+                }
+              >
+                Pages
+              </NavLink>
             </li>
             <li>
-              <a href="/">Contact</a>
+              <NavLink
+                to="contact"
+                className={({ isActive }) =>
+                  isActive ? "text-red-500" : "text-black"
+                }
+              >
+                Contact
+              </NavLink>
             </li>
           </ul>
         </div>
         {/* logo */}
         <div>
-          <a href="/" className="font-bold text-2xl ">
+          <Link to="/" className="font-bold text-2xl ">
             E-commerce
-          </a>
+          </Link>
         </div>
         {/* icon  */}
         <div className="flex gap-5 items-center">
@@ -52,8 +81,8 @@ const toggleMenu = () => {
         </div>
         {/* mobile menu */}
         {menuOpen && (
-          <div className='absolute top-16 left-0 w-full bg-gray-700 p-4 md:hidden'>
-            <ul className='space-y-3 text-white text-xl font-semibold text-center'>
+          <div className="absolute top-16 left-0 w-full bg-gray-700 p-4 md:hidden">
+            <ul className="space-y-3 text-white text-xl font-semibold text-center">
               <li>Home</li>
               <li>Shop</li>
               <li>Pages</li>

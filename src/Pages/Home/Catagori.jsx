@@ -3,39 +3,48 @@ import CatagoriImg from "../../assets/category-1.jpg"
 import CatagoriImg2 from "../../assets/category-2.jpg"
 import CatagoriImg3 from "../../assets/category-3.jpg"
 import CatagoriImg4 from "../../assets/category-4.jpg"
+import { Link } from 'react-router'
 
 const CatagoriList = [
   {
     id: 1,
     imgage: CatagoriImg,
-    title: "Accessories",
+    title: "Beauty",
   },
   {
     id: 2,
     imgage: CatagoriImg2,
-    title: "Dress Collection",
+    title: "Fragrances",
   },
   {
     id: 3,
     imgage: CatagoriImg3,
-    title: "Jewellery",
+    title: "Furniture",
   },
   {
     id: 4,
     imgage: CatagoriImg4,
-    title: "Cosmetics",
+    title: "Groceries",
   },
 ];
 
 const Catagori = () => {
   return (
     <div>
-      <div className='grid grid-cols-1 md:grid-cols-4 py-12 md:w-5xl mx-auto'>
+      <div className="grid grid-cols-1 md:grid-cols-4 py-12 md:w-5xl mx-auto">
         {CatagoriList.map((catagori, id) => (
-          <div key={catagori.id} className='space-y-3'>
-            <img src={catagori.imgage} alt="" className='h-30 rounded-full mx-auto'/>
-            <h2 className='text-2xl font-bold text-center'>{catagori.title}</h2>
-          </div>
+          <Link
+            key={catagori.id}
+            className="space-y-3"
+            to={`/categories/${catagori.title}`}
+          >
+            <img
+              src={catagori.imgage}
+              alt=""
+              className="h-30 rounded-full mx-auto"
+            />
+            <h2 className="text-2xl font-bold text-center">{catagori.title}</h2>
+          </Link>
         ))}
       </div>
     </div>
