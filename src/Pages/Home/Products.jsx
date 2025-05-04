@@ -35,7 +35,7 @@ const Products = () => {
             key={product.id}
             className="relative p-4 rounded-lg shadow-lg bg-white text-center space-y-3"
           >
-            {/* 🛒 Cart Icon at top-right */}
+            {/*  Cart Icon at top-right */}
             <div className="absolute top-3 right-2 text-xl cursor-pointer bg-red-600 text-white p-2">
               <FaCartArrowDown />
             </div>

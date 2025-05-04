@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router"; // ✅ useParams should be from 'react-router-dom'
+import { Link, useParams } from "react-router"; // ✅ useParams should be from 'react-router-dom'
 import Rating from "./Home/Rating";
-
+import { FaCartArrowDown } from "react-icons/fa";
 
 const CategoriPage = () => {
   const { categoryName } = useParams();
@@ -32,20 +32,28 @@ const CategoriPage = () => {
           praesentium velit a.
         </p>
       </section>
-
+      <button className="bg-red-600 text-white py-2 px-4 text-2xl mt-4 mb-4">
+        <Link to="/">Back HomePage</Link>
+      </button>
       {/* Product Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-4 items-center mb-30">
         {filteredProducts.map((product) => (
-          <div key={product.id} className="p-4 rounded shadow text-center">
+          <div
+            key={product.id}
+            className="relative p-4 rounded shadow text-center"
+          >
             <img
               src={product.images[0]}
               alt={product.title}
-              className="mx-auto object-contain mb-2"
+              className="mx-auto object-contain mb-2 h-40"
             />
             <h3 className="text-xl font-semibold mb-1">{product.title}</h3>
             <p className="text-lg font-bold mb-2">${product.price}</p>
             <div className="flex justify-center">
               <Rating rating={product.rating} />
+            </div>
+            <div className="absolute top-3 right-2 text-xl cursor-pointer bg-red-600 text-white p-2">
+              <FaCartArrowDown />
             </div>
           </div>
         ))}
